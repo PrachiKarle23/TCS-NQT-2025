@@ -1,0 +1,20 @@
+
+#include <iostream>
+using namespace std;
+
+int rangeSum(int i,int j)
+{
+    return ((j*(j+1))/2)-((i*(i+1))/2);
+}
+int main() {
+    int i,j;
+    cin>>i>>j;
+    
+    if(i<0 || j>=10000 ||i>=j){
+        cout<<-1;
+    } 
+    else{
+        cout<<rangeSum(i-1,j);
+    }
+    return 0;
+}
