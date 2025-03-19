@@ -1,0 +1,27 @@
+
+#include <iostream>
+using namespace std;
+
+int solve(int x,int y,int z,int mini,int maxi)
+{
+    if(x<mini || y<mini || z<mini)
+    {
+        return 1e9;
+    }
+    if(x>maxi || y>maxi || z>maxi)
+    {
+        return 1e9;
+    }
+    if(x==y && y==z){
+        return 0;
+    } 
+    return 1+min(solve(x+1,y+1,z-1,mini,maxi),min(solve(x+1,y-1,z+1,mini,maxi),solve(x-1,y+1,z+1,mini,maxi)));
+}
+int main() {
+    int x, y, z;
+    cin>>x>>y>>z;
+    int mini=min(min(x,y),z);
+    int maxi=max(max(x,y),z);
+    cout<<solve(x,y,z,mini,maxi);
+    return 0;
+}
